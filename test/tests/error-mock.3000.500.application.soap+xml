@@ -1,0 +1,8 @@
+<?xml version="1.0"?> 
+<soap:Fault xmlns:soap="http://www.w3.org/2001/12/soap-envelope"
+                soap:encodingStyle="http://www.w3.org/2001/12/soap-encoding">
+    <faultcode>soap:Server</faultcode>
+    <faultstring>Server was unable to process request. --&gt; Something
+bad happened</faultstring>
+    <detail />
+</soap:Fault>
