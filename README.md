@@ -50,6 +50,8 @@ File name: select-test.3000.200.application.xml
 *
 
 Mock filename convention is **testcase-name.port.responseCode.responseType.responseSubType**
+  
+This provides a framework to test ql.io scripts and routes.
 
 It is possible to specify more than one mock responses if the script uses multiple servers.
 
