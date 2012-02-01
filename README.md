@@ -4,7 +4,7 @@ A node unit based framework to test ql.io scripts.
 
 ## Overview
 1. Create a **tests** directory which contains scripts to test, mock response (optional) and detailed node unit asserts (optional).
-2. Create a js file which you intended provide to nodeunit to run.
+2. Create a js file which you intended to provide to nodeunit to run.
 3. Body of this files could look like the following:
 
 	module.exports = require('../lib/unit').init({
@@ -12,6 +12,7 @@ A node unit based framework to test ql.io scripts.
 		tables:__dirname + '/tables',            // <-- input for ql.io-engine
 		config:__dirname + '/config/dev.json'}); // <-- input for ql.io-engine
 
+This one statement provides the machinary to run 100s of tests.
  
 #### Example Select with mock response
 
@@ -25,9 +26,9 @@ File name: select-test.ql
 	aResponse = select * from myTable;
 	return "{aResponse}";
 
-The test case name is the filename (without .ql) i.e test case name for this example will be "select-test" and the related mock files and custom asserts will
+The test case name is the filename (without .ql) i.e test case name for this example will be "select-test" and the related mock files and custom asserts will need to begin with this name plus their own convention.
 
-Though the example above uses a hardcoded endpoint, it is a good idea to get it from config (ref to ql.io doc). This way mocked endpoints can be abstracted out.
+A point to note, though the example above uses a hardcoded endpoint, it is a good idea to get it from config (ref to ql.io doc). This way mocked endpoints can be abstracted out.
 
 **Mock Response**
 
@@ -45,8 +46,6 @@ File name: select-test.3000.200.application.xml
 
 Mock filename convention is **testcase-name.port.responseCode.responseType.responseSubType**
   
-This provides a framework to test ql.io scripts and routes.
-
 It is possible to specify more than one mock responses if the script uses multiple servers.
 
 It is also not necessary to have mock files and in that case it is assumed that the script is going to hit services external to ql-unit.
@@ -71,7 +70,7 @@ File name: select-test.js
     		}
 	}
 
-**testcase-name.js** tells ql-unit that user wants to do custom asserts on the response returned by the scripts. To implement custom asserts the user will need to export a function(**test**,**err**,**result**). 
+**testcase-name.js** tells ql-unit that user wants to do custom asserts on the response returned by the script being tested. To implement custom asserts the user will need to export function(**test**,**err**,**result**). 
 
 1. **test**: Is the nodeunit object on which assert operations can be done.
 2. **err**: Error object if the script returns erro.
