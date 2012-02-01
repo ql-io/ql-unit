@@ -5,7 +5,7 @@ A node unit based framework to test ql.io scripts.
 ## Overview
 1. Create a **tests** directory which contains scripts to test, mock response (optional) and detailed node unit asserts (optional).
 2. Create a js file which you intended to provide to nodeunit to run.
-3. Body of this files could look like what is given below:
+3. Body of this file could look like what is given below:
 
 Let us say filename is runallTests.js
 
