@@ -14,7 +14,7 @@ npm install ql-unit
 Let us say filename is runallTests.js
 
 
-	module.exports = require('ql-uni').init({
+	module.exports = require('ql-unit').init({
 		tests:__dirname + '/tests',
 		tables:__dirname + '/tables', // <- ql.io-engine param
 		config:__dirname + '/config/dev.json'}); // <- ql.io-engine param
