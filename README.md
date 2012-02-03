@@ -2,7 +2,7 @@
 
 A node unit based framework to test ql.io scripts.
 
-## installation
+## Installation
 
 npm install ql-unit
 
