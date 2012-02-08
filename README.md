@@ -1,6 +1,10 @@
 ## ql-unit
 
-A node unit based framework to test ql.io scripts. 
+A node unit based framework to test ql.io scripts.
+
+## Installation
+
+npm install ql-unit
 
 ## Overview
 1. Create a **tests** directory which contains scripts to test, mock response (optional) and detailed node unit asserts (optional).
@@ -10,7 +14,7 @@ A node unit based framework to test ql.io scripts.
 Let us say filename is runallTests.js
 
 
-	module.exports = require('../lib/unit').init({
+	module.exports = require('ql-unit').init({
 		tests:__dirname + '/tests',
 		tables:__dirname + '/tables', // <- ql.io-engine param
 		config:__dirname + '/config/dev.json'}); // <- ql.io-engine param
