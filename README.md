@@ -1,3 +1,4 @@
+Unit Testing for [![ql.io](http://ql.io/images/ql.io-large.png)](http://ql.io)
 ## ql-unit
 
 A node unit based framework to test ql.io scripts.
