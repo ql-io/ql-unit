@@ -1,4 +1,4 @@
-[![ql.io](http://ql.io/images/ql.io-large.png)] 
+![ql.io](http://ql.io/images/ql.io-large.png) 
 # .... Unit Testing 
 ## ql-unit
 
