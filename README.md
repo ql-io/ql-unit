@@ -2,6 +2,8 @@
 
 A node unit based framework to test ql.io scripts.
 
+https://secure.travis-ci.org/ql-io/ql.io.png
+
 ## Installation
 
 npm install ql-unit
