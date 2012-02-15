@@ -2,7 +2,7 @@
 
 A node unit based framework to test ql.io scripts.
 
-https://secure.travis-ci.org/ql-io/ql.io.png
+![Travis status](https://secure.travis-ci.org/ql-io/ql.io.png)
 
 ## Installation
 
