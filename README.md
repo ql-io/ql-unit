@@ -21,6 +21,7 @@ Let us say filename is runallTests.js
 	module.exports = require('ql-unit').init({
 		tests:__dirname + '/tests',
 		tables:__dirname + '/tables', // <- ql.io-engine param
+		routes:__dirname + '/routes', // <- ql.io-engine param
 		config:__dirname + '/config/dev.json'}); // <- ql.io-engine param
 
 This one statement provides the machinary to run 100s of tests.
@@ -159,4 +160,42 @@ File Name: ping-pong.post.js
 	}
 
 
+## Example for passing custom "engine" and/or "console"
 
+In the Overview section user options are passed to ql-unit's .init() which it internally uses to create ql.io-engine and ql.io-console instances. Sometimes users would want to provide their own engine and console instance (e.g. for tests inside ql.io-engine and ql.io-console packages). Here are some example for that.
+
+File Name: passEngine.js
+
+	var Engine = require('../lib/engine'); // Because I am part of ql.io-engine project
+	    
+	var opts = {
+    	tables:__dirname + '/tables',
+        routes:__dirname + '/routes',
+        config:__dirname + '/config/dev.json'
+    };
+
+	module.exports = require('../lib/unit').init({
+    	engine:new Engine(opts),
+    	tables:__dirname + '/tables',
+    	routes:__dirname + '/routes',
+    	config:__dirname + '/config/dev.json',
+    	tests:__dirname + '/tests/'});
+
+File Name: passConsole.js
+
+	var Console = require('../app.js'); // Because I am part of ql.io-console project
+	    
+	var opts = {
+    	tables:__dirname + '/tables',
+        routes:__dirname + '/routes',
+        config:__dirname + '/config/dev.json',
+        'enable console': false,
+        connection: 'close'
+    };
+
+	module.exports = require('../lib/unit').init({
+    	console:new console(opts),
+    	tables:__dirname + '/tables',
+    	routes:__dirname + '/routes',
+    	config:__dirname + '/config/dev.json',
+    	tests:__dirname + '/tests/'});
