@@ -13,23 +13,39 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-var http = require('http'),
+var express = require('express'),
     fs = require('fs'),
-    util = require('util'),
-    _    = require('underscore');
+    util = require('util');
+
+exports.setup = function (cb) {
+    var server = express.createServer(function (req, res) {
+        var data = '';
+        req.on('data', function(chunk) {
+            data += chunk;
+        });
+        req.on('end', function() {
+            res.send(data);
+        });
+    });
+
+    server.listen(80126, function () {
+        cb({server:server});
+    });
+}
+
+
+exports.tearDown = function(cb, ctx){
+    ctx.server.close();
+    cb();
+}
 
 exports.test = function (test, err, result) {
     if (err) {
-        console.log(err.stack || util.inspect(err, false, 10));
-        test.fail('Expected success');
+        console.log(err.stack || util.inspect(err, false, null));
+        test.fail('got error');
     }
     else {
-        test.ok(result.headers, 'Expected Headers');
-        test.equals(result.statusCode, 200);
-        test.ok(result.body, 'Expected Body');
-        test.ok(_.isArray(result.body), 'Expected Body to be array');
-        test.ok(result.body.length > 0, 'Expected Body to be array.length > 0');
+        test.deepEqual(result.body, { val:{ postPayload:{ ItemID:'abcd', UserID:'xyz' } } });
     }
 }
-
 

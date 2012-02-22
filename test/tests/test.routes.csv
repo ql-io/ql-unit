@@ -1,3 +1,1 @@
-name,request,type
-find-ipad,/finditems/ipad,get
-find-iphone,/finditems/iphone,get
+name,request,typefind-ipad,/finditems/ipad,getfind-iphone,/finditems/iphone,getping-pong-post,/ping/pongxml,post
