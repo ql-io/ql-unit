@@ -2,7 +2,7 @@
 # .... Unit Testing 
 ## ql-unit
 
-A node unit based framework to test ql.io scripts.
+A node unit based framework to test ql.io scripts and routes.
 
 ![Travis status](https://secure.travis-ci.org/ql-io/ql-unit.png)
 
