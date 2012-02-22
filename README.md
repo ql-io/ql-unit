@@ -25,7 +25,7 @@ Let us say filename is runallTests.js
 
 This one statement provides the machinary to run 100s of tests.
  
-#### Example Select with mock response
+#### Example for Select with mock response
 
 **Script to test**
 
@@ -88,6 +88,74 @@ File name: select-test.js
 3. **result**: Result returned by the script.
 
 
+#### Example for "routes" testing
+ 
+**CSV file with routes to test**
+File name: sample.routes.csv
+
+	name,request,type,header1,header2,header3
+	find-ipad,/finditems/ipad,get
+	find-iphone,/finditems/iphone,get
+	ping-pong-post,/ping/pongxml,post,h:1234,h2:abcd,h3:pqr
+
+uris to exercise routes to be tested can be specified in a csv file with naming convention *irrelevantName*.**routes.csv**. 
+
+The first line are column headers where:
+
+1. **name**: testcase-name
+2. **request**: uri corresponding to the route exercised
+3. **type**: http verb used to exercise the uri
+
+**header1**, **header2**, etc. column headers are optional and could be provided if custom headers are to be supplied in the HTTP request for the route being tested.
+
+If a given HTTP header contains a comma (**,**) then the user should enclose the value with quotes (**""**) in the csv file (to avoid confusion with comma used to seperated fields in the csv file ). example:
+
+	name,request,type,header1
+	ping-pong-post,/ping/pongxml,post,"Date:Tue, 15 Nov 1994 08:12:31 GMT"
+	
+**Request body for PUT and POST**
+
+For **PUT** and **POST** requests user needs to specify a request file with a name that follows the convention **testcase-name.request.requestType.requestSubType**.
+
+File name: ping-pong-post.request.application.json
+
+	{
+    	"itemId": "abcd",
+    	"userId": "xyz"
+	}
+	
+Besides the csv file containing routes and request files, user can also create mock responses and custom asserts as shown the previous example.
+
+
+#### Example for "setup" and "tearDown" testing
+
+Some tests requires doing some setup and appropriate teardown. This can be achieved by creating .js file like the one created for customer assert (following that naming convention) in the first example and defining "setup" and "tearDown" functions in it. Following is an example where "setup" and "tearDown" is used to create simple echo server. 
+
+File Name: ping-pong.post.js
+
+	var express = require('express'),
+    	util = require('util');
+
+	exports.setup = function (cb) {
+    	var server = express.createServer(function (req, res) {
+        	var data = '';
+        	req.on('data', function(chunk) {
+            	data += chunk;
+	        });
+    	    req.on('end', function() {
+        	    res.send(data);
+	        });
+    	});
+	
+    	server.listen(80126, function () {
+        	cb({server:server});
+	    });
+	}
+	
+	exports.tearDown = function(cb, ctx){
+    	ctx.server.close();
+    	cb();
+	}
 
 
 

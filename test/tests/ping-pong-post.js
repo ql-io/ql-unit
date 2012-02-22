@@ -14,7 +14,6 @@
  * limitations under the License.
  */
 var express = require('express'),
-    fs = require('fs'),
     util = require('util');
 
 exports.setup = function (cb) {

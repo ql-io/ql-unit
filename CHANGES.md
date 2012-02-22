@@ -1,4 +1,7 @@
 ## CHANGE LOG
+#### Feb 21, 2012
+* Support for Routes testing
+
 #### Feb 19, 2012
 * Support for Setup and TearDown
 
