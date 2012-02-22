@@ -1,9 +1,11 @@
 ## CHANGE LOG
+#### Feb 19, 2012
+* Support for Setup and TearDown
 
 #### Feb 15, 2012
 
-1. Activate travis-ci.
+* Activate travis-ci.
 
 #### Feb 07, 2012
 
-1. Ability to run tests on users engine.
+* Ability to run tests on users engine.
