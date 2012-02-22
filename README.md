@@ -25,7 +25,7 @@ Let us say filename is runallTests.js
 
 This one statement provides the machinary to run 100s of tests.
  
-### Example for Select with mock response
+## Example for Select with mock response
 
 **Script to test**
 
@@ -88,7 +88,7 @@ File name: select-test.js
 3. **result**: Result returned by the script.
 
 
-### Example for "routes" testing
+## Example for "routes" testing
  
 **CSV file with routes to test**
 
@@ -128,7 +128,7 @@ File name: ping-pong-post.request.application.json
 Besides the csv file containing routes and request files, user can also create mock responses and custom asserts as shown the previous example.
 
 
-### Example for "setup" and "tearDown" testing
+## Example for "setup" and "tearDown" testing
 
 Some tests requires doing some setup and appropriate teardown. This can be achieved by creating .js file like the one created for customer assert (following that naming convention) in the first example and defining "setup" and "tearDown" functions in it. Following is an example where "setup" and "tearDown" is used to create simple echo server. 
 
