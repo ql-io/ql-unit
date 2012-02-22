@@ -1,0 +1,3 @@
+name,request,type
+find-ipad,/finditems/ipad,get
+find-iphone,/finditems/iphone,get

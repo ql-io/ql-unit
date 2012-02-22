@@ -13,9 +13,20 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+var util = require('util'),
+    _    = require('underscore');
 
-module.exports = require('../lib/unit').init({
-    tests:__dirname + '/tests/',
-    tables:__dirname + '/tables',
-    routes:__dirname + '/routes',
-    config:__dirname + '/config/dev.json'});
+exports.test = function (test, err, result) {
+    if (err) {
+        console.log(err.stack || util.inspect(err, false, 10));
+        test.fail('Expected success');
+    }
+    else {
+        test.ok(result.headers, 'Expected Headers');
+        test.equals(result.statusCode, 200);
+        test.ok(result.body, 'Expected Body');
+        test.ok(_.isArray(result.body), 'Expected Body to be array');
+        test.ok(result.body.length > 0, 'Expected Body to be array.length > 0');
+    }
+}
+
