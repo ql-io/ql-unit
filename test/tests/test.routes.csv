@@ -1,0 +1,4 @@
+name,request,type,header1,header2,header3
+find-ipad,/finditems/ipad,get
+find-iphone,/finditems/iphone,get
+ping-pong-post,"/ping/pongxml",post,"h:12,34i",h2:abcd,h3:pqr

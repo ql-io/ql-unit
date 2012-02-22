@@ -13,11 +13,22 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-var Engine = require("ql.io-engine");
+var Engine = require("ql.io-engine"),
+    Console = require("ql.io-console");
 
 module.exports = require('../lib/unit').init({
     engine:new Engine({
         tables:__dirname + '/tables',
+        routes:__dirname + '/routes',
         config:__dirname + '/config/dev.json'
     }),
+    console:new Console({
+        tables:__dirname + '/tables',
+        routes:__dirname + '/routes',
+        config:__dirname + '/config/dev.json',
+        'enable console':false,
+        connection:'close'
+    }),
     tests:__dirname + '/tests/'});
+
+
