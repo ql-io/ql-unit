@@ -100,7 +100,7 @@ File name: sample.routes.csv
 
 uris to exercise routes to be tested can be specified in a csv file with naming convention *irrelevantName*.**routes.csv**. 
 
-The first line are column headers where:
+The first line is for column headers where:
 
 1. **name**: testcase-name
 2. **request**: uri corresponding to the route exercised
