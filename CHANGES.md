@@ -12,3 +12,7 @@
 #### Feb 07, 2012
 
 * Ability to run tests on users engine.
+
+#### Mar 01, 2012
+
+* Added cooked test handling to combine the various files in the tests directory into one file
