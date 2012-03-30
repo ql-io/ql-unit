@@ -1,4 +1,7 @@
 ## CHANGE LOG
+#### Mar 30, 2012
+* Added transaction verification
+
 #### Feb 21, 2012
 * Support for Routes testing
 
